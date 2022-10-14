@@ -1,15 +1,19 @@
 const express = require('express');
 const router = express.Router();///test-you
-//importing a custom module
-const xyz = require('../logger')
-//importing external package
-const underscore = require('underscore')
 //My code
 const ques1 = require('../logger/logger');
+const ques2 = require('../util/helper')
+
+//importing external package
+const underscore = require('underscore')
+
+
 
 router.get('/test-me', function (req, res) {
-    console.log("Problem 1 answer is ");
+    console.log("Problem 1 answer is --------");
     ques1.printdetails();
+    console.log("Problem 2 answer is ---------");
+    ques2.printDate();
     //Calling the components of a different custom module
     // console.log("Calling my function ",xyz.myFunction())
     // console.log("The value of the constant is ",xyz.myUrl)
