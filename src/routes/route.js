@@ -41,7 +41,7 @@ const router = express.Router();
 
 router.get('/movies', function (req, res){
     let movies = ['Rang de basanti', 'The shining', 'Lord of the rings', 'Batman begins']
-    console.log("Rroblem 1 answer is ----------------------->" +movies)
+    console.log("Problem 1 answer is ----------------------->" +movies)
     res.send(movies)
 })
 
@@ -73,7 +73,7 @@ router.get('/movies/:indexNumber', function (req, res){
     if(index_no < 0 || index_no > movies.length - 1){
         res.send("please insert valid index number")
     } else {
-        res.send("movies[index_no]")
+        res.send(movies[index_no])
     }
 
 });
