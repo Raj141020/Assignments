@@ -103,7 +103,7 @@ router.get('/get/films', function (req, res){
 //Question 5
 
 router.get('/get/films/:filmId', function (req, res){
-    console.log("This is the request " + JSON.stringify(req.params));
+    console.log("This is the request for Problem number 5 " + JSON.stringify(req.params));
 
     const films = [ {
         id: 1,
