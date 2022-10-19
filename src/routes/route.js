@@ -167,7 +167,9 @@ router.get('/arr1', function (req, res){
     let sum = arr1.reduce((a,b)=>a+b)
     
     let miss_num = out - sum;
-
+    
+    console.log(out);
+    console.log(sum);
     console.log("answer of missing number is ------------->" + miss_num)
 
        res.send({Missing_Number_is:miss_num})
