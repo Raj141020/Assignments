@@ -146,7 +146,7 @@ router.get('/arr', function (req, res){
     for(let i=0;i<b;i++){
         sum +=arr[i]
     }
-    
+
    const miss_num = t - sum;
     console.log(sum)
     console.log(t)
@@ -157,5 +157,20 @@ router.get('/arr', function (req, res){
 
 //Question 2
 
+router.get('/arr1', function (req, res){
+    let arr1 = [33,34,35,36,38,39]
+    let len = arr1.length + 1;
+    let fist = arr1[0]
+    let lst = arr1[arr1.length - 1]
+    let out = (len * (fist + lst)) / 2;
+
+    let sum = arr1.reduce((a,b)=>a+b)
+    
+    let miss_num = out - sum;
+
+    console.log("answer of missing number is ------------->" + miss_num)
+
+       res.send({Missing_Number_is:miss_num})
+});
 
 module.exports = router;
