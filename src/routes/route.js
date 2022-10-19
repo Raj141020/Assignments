@@ -132,4 +132,30 @@ router.get('/get/films/:filmId', function (req, res){
        
     
 });
+
+//Find Missing Number
+
+//Question 1
+
+router.get('/arr', function (req, res){
+    let arr = [1,2,3,4,5,7]
+    let b = arr.length;
+    let t = (arr[b-1] * (arr[b-1] + 1)) / 2;
+    let sum =0
+
+    for(let i=0;i<b;i++){
+        sum +=arr[i]
+    }
+    
+   const miss_num = t - sum;
+    console.log(sum)
+    console.log(t)
+    console.log("Missing number is -------------->" +miss_num)
+    
+       res.send({Missing_Number_is:miss_num})
+});
+
+//Question 2
+
+
 module.exports = router;
