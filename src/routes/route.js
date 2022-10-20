@@ -109,6 +109,50 @@ let players =
        
    })
 
+//Question 2
+
+let persons= [
+    {
+    name: "PK",
+    age: 10,
+    votingStatus: false
+ },
+ {
+    name: "SK",
+    age: 20,
+    votingStatus: false
+ },
+ {
+    name: "AA",
+    age: 70,
+    votingStatus: false
+ },
+ {
+    name: "SC",
+    age: 5,
+    votingStatus: false
+ },
+ {
+    name: "HO",
+    age: 40,
+    votingStatus: false
+ }
+ ]
+
+ router.post("/persons", function(req, res) {
+    
+    let arr = [];
+    let age = req.query.voterage;
+    for(let i=0;i<persons.length;i++){
+        if(persons[i].age >= age){
+            persons[i].votingStatus = true;
+            arr.push(persons[i])
+        } 
+    }
+    console.log(arr)
+    res.send(arr)
+})
+ 
 
 
 module.exports = router;
