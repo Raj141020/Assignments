@@ -9,7 +9,7 @@ const bookSchema = new mongoose1.Schema( {
     authername: String,
     category: {
         type :String,
-        type:["Funny","Sci-Fi","Mystery","Thiller","Romance"],
+        enum:["Funny","Sci-Fi","Mystery","Thiller","Romance"],
     },
     year : Number
 
