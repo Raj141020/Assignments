@@ -11,7 +11,7 @@ const bookInput= async function (req, res) {
 //Book List
 
 const allData= async function (req, res) {
-    let allBookData= await books.find().select( { bookName: 1, autherName: 1, _id: 0 } );
+    let allBookData= await books.find().select( { bookName: 1, authorName: 1, _id: 0 } );
     res.send({msg: allBookData})
 }
 
@@ -29,7 +29,7 @@ const getParticularBooks= async function (req, res) {
     let data = req.body
     let yearData =await books.find( data ).select( { bookName: 1,_id: 0 } );
     res.send({msg:yearData})
-}
+};
 
 //XINRBooks
 

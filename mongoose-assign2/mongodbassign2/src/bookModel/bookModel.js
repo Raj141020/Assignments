@@ -6,7 +6,7 @@ const bookSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    price: { IndianRupees: String, EuropeanPrice: String },
+    price: String ,
     year: { type: Number, default: 2021 },
     tag: [String],
     authorName: String,
