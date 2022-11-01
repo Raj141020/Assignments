@@ -32,7 +32,7 @@ const getBooksWithAuthorAndPublisherDetails = async function (req, res) {
 
 const updateOldBook = async function (req, res) {
     let books = await bookModel.findByIdAndUpdate(
-        { _id: "630089b459241d540efc1cdb" },
+        { _id: "636141d3dfe20c29e7cc7497" },
         { $set: { isHardCover: false } },
         { new: true, upsert: true }
     )
