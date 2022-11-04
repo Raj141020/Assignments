@@ -10,9 +10,9 @@ const createUser = async function (abcd, xyz) {
   //the second parameter is always the response
   let data = abcd.body;
   let savedData = await userModel.create(data);
-  console.log(abcd.newAtribute);
   xyz.send({ msg: savedData });
 };
+
 
 const loginUser = async function (req, res) {
   let userName = req.body.emailId;
@@ -34,17 +34,18 @@ const loginUser = async function (req, res) {
   let token = jwt.sign(
     {
       userId: user._id.toString(),
-      batch: "thorium",
+      batch: "Lithium",
       organisation: "FunctionUp",
     },
-    "functionup-plutonium-very-very-secret-key"
+    "functionup-lithium-very-very-secret-key"
   );
   res.setHeader("x-auth-token", token);
   res.send({ status: true, token: token });
 };
 
+
 const getUserData = async function (req, res) {
-  let token = req.headers["x-Auth-token"];
+  let token = req.headers["x-auth-token"];
   if (!token) token = req.headers["x-auth-token"];
 
   //If no token is present in the request header return error. This means the user is not logged in.
@@ -63,7 +64,7 @@ const getUserData = async function (req, res) {
   // And because this token is only known to the server, it can be assumed that if a token is decoded at server then this token must have been issued by the same server in past.
   let decodedToken = jwt.verify(
     token,
-    "functionup-plutonium-very-very-secret-key"
+    "functionup-lithium-very-very-secret-key"
   );
   if (!decodedToken)
     return res.send({ status: false, msg: "token is invalid" });
@@ -95,7 +96,14 @@ const updateUser = async function (req, res) {
   res.send({ status: updatedUser, data: updatedUser });
 };
 
+const deleteUser = async function(req, res){
+  let userId = req.params.userId;
+  let deleteUser = await userModel.findByIdAndUpdate({_id: userId}, { $set: {isDeleted: true} } , {new: true} )
+  return res.send({msg: deleteUser})
+}
+
 module.exports.createUser = createUser;
 module.exports.getUserData = getUserData;
 module.exports.updateUser = updateUser;
 module.exports.loginUser = loginUser;
+module.exports.deleteUser = deleteUser;

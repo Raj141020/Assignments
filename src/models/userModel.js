@@ -9,12 +9,21 @@ const userSchema = new mongoose.Schema( {
         required: true
     },
     emailId: String,
+
     password: String,
+
     gender: {
         type: String,
-        enum: ["male", "female", "other"]
+
+        enum: ["male", "female", "other"]  //LGBT
     },
     age: Number,
+
+    isDeleted:{
+        type:Boolean,
+
+        default:false
+    },
 }, { timestamps: true });
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('UserJWT', userSchema)
